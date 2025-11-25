@@ -1,3 +1,125 @@
-     nav a, .nav-link a {
+    nav a, .nav-link {
             font-family: 'Poppins', sans-serif;
         }
+
+    .header{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .lead{
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #Home {
+    position: relative;
+}
+
+#Home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* adjust height of blur area */
+    background: linear-gradient(to bottom, transparent, rgb(38, 37, 37));
+    pointer-events: none;
+}
+
+
+/* CARD CSS */
+.fruit-flip-card {
+    perspective: 1000px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.fruit-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.fruit-flip-card.flipped .fruit-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.fruit-flip-front, 
+.fruit-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.fruit-flip-front {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 2px solid rgba(255, 100, 100, 0.3);
+    transition: opacity 0.3s ease;
+}
+
+.fruit-flip-back {
+    background: linear-gradient(145deg, #dc3545, #a71d2a);
+    transform: rotateY(180deg);
+    color: white;
+}
+
+.fruit-flip-front img {
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(255, 100, 100, 0.4));
+}
+
+.fruit-flip-front h5 {
+    color: #ffc107;
+    margin: 0;
+}
+
+.fruit-flip-back h5 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.fruit-flip-back p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.fruit-flip-card::after {
+    content: 'Tap to flip';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc107;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fruit-flip-card:hover::after {
+    opacity: 1;
+}
+
+.fruit-flip-card:hover .fruit-flip-front {
+    opacity: 0.50;
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #dc3545 !important;
+    text-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+    transform: translateY(-2px);
+}
