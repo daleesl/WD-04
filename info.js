@@ -69,7 +69,7 @@ var fruits =[
 
 ];
 
-var Ships = [
+var ships = [
     {
         "name": "Going Merry",
         "picture": "assets/images/ships/ship_merry.png"
